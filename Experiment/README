@@ -1,0 +1,148 @@
+1. Motivation
+2. Testing
+3. Methodology and Limitations
+4. Results
+5. Findings
+
+MOTIVATION
+	
+	Conceptual understanding of data structures and algorithms as well as
+	their implementations in a programming language are core components
+	to being a programmer. It is my goal with this project to sharpen
+	both of those skills as well as improving software development skills,
+	specifically in a UNIX-like environment.
+
+	Program design, testing, maintenance, version control, style,
+	usability, familiarity with the make system, and an intuitive
+	understanding of the compute required for various sorting algorithms
+	over a given data set. All of these and goals were attained through
+	working on this project.
+
+
+TESTING
+
+	Tests for sorting:
+	List size 0.
+	list size 1.
+	list size 11, for odd length lists.
+	list size 12, for even length lists.
+	list already sorted in non-decreasing order. (odd/even)
+	list already sorted in non-increasing order. (odd/even)
+	list has (multiple) repeated values. (odd/even)
+	list consists of only one value. (odd/even)
+	PASSED:
+		bubblesort
+		insertionsort
+		selectionsort
+		quicksort
+		mrgsort
+
+	Tests for searching:
+	list size 0. (will never contain target)
+	list size 1. (found/not found)
+	list size 11, for odd length lists. (found/not found)
+	list size 12, for even length lists. (found/not found)
+	list is sorted in non-decreasing order. (odd/even, found/not
+		found)
+	list is sorted in non-increasing order. (odd/even, found/not
+		found, linsearch only)
+	list is not sorted. (odd/even, found/not found, linsearch only)
+	list has (multiple) repeated values. (odd/even)
+	list consists of only one value. (odd/even)
+	PASSED:
+		linsearch
+		binsearch
+
+	Tests for checksorted:
+	list size 0. (empty list considered sorted)
+	list size 1. (single element considered sorted)
+	list size 11, for odd length lists. (sorted/unsorted)
+	list size 12, for even length lists. (sorted/unsorted)
+	list is sorted in non-decreasing order. (odd/even, returns true)
+	list is sorted in non-increasing order. (odd/even, returns false)
+	list has (multiple) repeated values. (odd/even, sorted/unsorted)
+	list consists of only one value. (odd/even, always sorted)
+	PASSED:
+		checksorted
+
+	Tests for input validation
+	no parameters given. (calls usage())
+	excessive parameters given. (calls usage())
+	correct parameters given. (0, 1, odd/even, all parms return
+		expected values)
+	incorrect parameters given. (doesn't return garbage)
+	PASSED:
+		B
+		L
+		b
+		i
+		m
+		p
+		q
+		s
+		t
+
+
+METHODOLOGY
+
+	Hardware: Testing was done on my VPS with 1024 MB ram, 25 GB SSD,
+		and a single-core virtual CPU on OpenBSD 7.0.
+
+	Each algorithm went through 100 iterations of the following:
+	(i).	An array of size 1000000 was created and filled with random
+		integers using the arc4random(3) function.
+	(ii).	A timing macro is started.
+	(iii).	The sorting algorithm is is performed.
+	(iv).	The timing macro is ended.
+	(v).	The time is written to a file.
+
+	After 100 iterations are complete, computations are done to calculate
+	the Mean time and Standard Deviation over the iterations and the
+	results are appended to the file "results".
+
+
+RESULTS
+
+	Merge Sort: 1M random integers, 100 iterations.
+	Mean:	0.750600	Stddev:	0.019069
+
+	Quick Sort: 1M random integers, 100 iterations.
+	Mean:	0.210500	Stddev:	0.007263
+
+	Insertion Sort: 1M random integers, 100 iterations.
+	Mean:	809.893000	Stddev:	5.247818
+
+	Selection Sort: 1M random integers, 100 iterations.
+	Mean:	1453.453600	Stddev:	8.150296
+
+	Bubble Sort: 1M random integers, 100 iterations.
+	Mean:Stddev:
+
+
+FINDINGS
+
+	We can clearly see that mrgsort and quicksort are superior for
+	sorting these large data sets.
+
+	The Big O complexity of mrgsort is O(nlogn) in best, average, and
+	worst case scenarios. This makes is desirable for its consistency.
+	The downside to mrgsort however is the O(n) space complexity due to
+	merging portions. The variation for these iterations is +/- 2.54%.
+
+	Big O for quicksort is actually worse with O(nlogn) is best and
+	average case, but O(n^2) is worst case and because of this, quicksort
+	is considered unstable. Despite that, quicksort outperformed mrgsort
+	in this experiment by ~3 times. Variation is +/- 3.45%, which shows that
+	quicksort is less stable than mrgsort.
+
+	Big O for insertionsort is O(n) in the best case and O(n^2) in average
+	and worst case. It seems this is why insertionsort so outperformed
+	selectionsort is this experiment. Variation is +/- 0.64%
+
+	Big O for selectionsort is O(n^2) in best, average, and worst case.
+	Variation is +/- 0.56%
+
+	Big O for bubblesort is O(n) in the best case and O(n^2) in the average
+	and worst case. Despite having a better best-case complexity,
+	bubblesort is by far the slowest of all these algorithms in this
+	experiment. Variation is +/- %

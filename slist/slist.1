@@ -1,0 +1,45 @@
+.Dd $Mdocdate: April 07 2022 $
+.Dt SLIST 1
+.Os
+.Sh NAME
+.Nm slist
+.Nd simple menu-drive singly-linked list demonstration program
+.Sh SYNOPSIS
+.Nm slist
+.Sh DESCRIPTION
+The
+.Nm
+demo program prints to the standard output. It's menu provides options for
+manipulating and printing the singly-linked list data structure. Element values
+are generated randomly by the arc4random(3) function, modulo 100 for easier
+reading.
+.Pp
+The options are as follows:
+.Bl -tag -width Ds
+.It W - Pushes an element to the head of the list.
+.It E - Inserts an element AFTER the Nth position. If N is less than 1, it will
+insert the element at the head. If N is greater than the size of the list, it
+will insert at the tail of the list.
+.It R - Inserts an element to the tail of the list.
+.It T - Deletes the element at the head of the list.
+.It Y - Deletes the element AFTER the Nth position. If N is less than 1, it
+will delete the element at the head. If N is greater than the size of the
+list, it will delete the element at the tail of the list.
+.It U - Deletes the element at the tail of the list.
+.It P - Prints the Help Menu.
+.It S - Prints the number of elements in the list.
+.It C - Clears the list, making it empty.
+.It K - Clears the screen.
+.It H - Prints the Help menu.
+.It Q - Quits the program.
+.El
+.Sh EXIT STATUS
+.Ex -std slist
+.Sh SEE ALSO
+.Xr bst 1 ,
+.Xr clist 1 ,
+.Xr dlist 1 ,
+.Xr htb 1 ,
+.Xr q 1 ,
+.Xr ss 1 ,
+.Xr stack 1

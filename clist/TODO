@@ -1,0 +1,2 @@
+Need to change N functions to accept negative values. PushN(-1) should
+be equivalent to PushTail for example.

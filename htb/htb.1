@@ -1,0 +1,41 @@
+.Dd $Mdocdate: April 07 2022 $
+.Dt HTB 1
+.Os
+.Sh NAME
+.Nm htb
+.Nd simple menu-drive hash table demonstration program
+.Sh SYNOPSIS
+.Nm htb
+.Sh DESCRIPTION
+The
+.Nm
+demo program prints to the standard output. It's menu provides options for
+manipulating and printing the hash table data structure.
+.Pp
+The options are as follows:
+.Bl -tag -width Ds
+.It I - Inserts a <name, age> pair into the hash table, reading both name
+and age from the standard input.
+.It D - Deletes <name, age> pair from the hash table, reading a name from
+the standard input.
+.It P - Prints the hash table.
+.It S - Searches for a <name, age> pair in the hash table, reading a name
+from the standard input.
+.It C - Clears the hash table, making it empty.
+.It H - Prints the Help Menu.
+.It Q - Quits the program.
+.It K - Clears the screen.
+.El
+.Sh EXIT STATUS
+.Ex -std htb
+.Sh BUGS
+.It Program is known to segmentation fault when trying to delete an entry
+where the cases don't match.
+.Sh SEE ALSO
+.Xr bst 1 ,
+.Xr clist 1
+.Xr dlist 1 ,
+.Xr q 1 ,
+.Xr slist 1 ,
+.Xr ss 1 ,
+.Xr stack 1

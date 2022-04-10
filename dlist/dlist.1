@@ -1,0 +1,46 @@
+.Dd $Mdocdate: April 07 2022 $
+.Dt DLIST 1
+.Os
+.Sh NAME
+.Nm dlist
+.Nd simple menu-drive doubly-linked list demonstration program
+.Sh SYNOPSIS
+.Nm dlist
+.Sh DESCRIPTION
+The
+.Nm
+demo program prints to the standard output. It's menu provides options for
+manipulating and printing the doubly-linked list data structure. Element values
+are generated randomly by the arc4random(3) function, modulo 100 for easier
+reading.
+.Pp
+The options are as follows:
+.Bl -tag -width Ds
+.It W - Pushes an element to the head of the list.
+.It E - Inserts an element AFTER the Nth position. If N is less than 1, it will
+insert the element at the head. If N is greater than the size of the list, it
+will insert at the tail of the list.
+.It R - Inserts an element to the tail of the list.
+.It T - Deletes the element at the head of the list.
+.It Y - Deletes the element AFTER the Nth position. If N is less than 1, it
+will delete the element at the head. If N is greater than the size of the
+list, it will delete the element at the tail of the list.
+.It U - Deletes the element at the tail of the list.
+.It P - Prints the list, with "BOING!!!" showing the doubly-linked nature. If
+the list size is greater than 9, print a condensed version of the list.
+.It S - Prints the number of elements in the list.
+.It C - Clears the list, making it empty.
+.It K - Clears the screen.
+.It H - Prints the Help menu.
+.It Q - Quits the program.
+.El
+.Sh EXIT STATUS
+.Ex -std dlist
+.Sh SEE ALSO
+.Xr bst 1 ,
+.Xr clist ,
+.Xr htb ,
+.Xr q ,
+.Xr slist ,
+.Xr ss ,
+.Xr stack
